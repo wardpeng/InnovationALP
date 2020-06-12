@@ -9,16 +9,56 @@
 		<Schema Namespace="zinnov_c_idea_query_cds_van.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
 			<Annotations Target="ZINNOV_C_IDEA_QUERY_CDS.ZINNOV_C_IDEA_QUERYType/ID"><Annotation Term="UI.Hidden"/></Annotations>
 			<Annotations Target="ZINNOV_C_IDEA_QUERY_CDS.ZINNOV_C_IDEA_QUERYType">
-				<Annotation Term="UI.Chart" Qualifier="KPICatetoryChart">
-					<Annotation Term="Core.Messages">
-						<Collection>
-							<Record><PropertyValue Property="message"
-								String="Property 'Category2' of annotation 'UI.CHART$3$.DIMENSIONS$1$' in proj./view 'ZINNOV_C_IDEA_QUERY' not found"/><PropertyValue Property="severity" String="error"/></Record>
-						</Collection>
-					</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="ChartCounterByCategory2">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="Description" String="Category"/><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>Category</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="Category"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>Counter</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="Counter"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/><PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#Counter"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
 				</Annotation>
-				<Annotation Term="UI.Chart" Qualifier="KPIStatusChart">
-					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="Description" String="Type: K/I"/><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+				<Annotation Term="UI.Chart" Qualifier="ChartCounterByType">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="Description" String="Types K/I"/><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>Type</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="Type"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>Counter</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="Counter"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/><PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#Counter"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="ChartCounterByStatus">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="Description" String="Status Details"/><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
 						<PropertyValue Property="Dimensions">
 							<Collection>
 								<PropertyPath>Status</PropertyPath>
@@ -42,7 +82,7 @@
 					</Record>
 				</Annotation>
 				<Annotation Term="UI.Chart" Qualifier="ChartDefault">
-					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="Description" String="ZWP Idea Details"/><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="Description" String="Idea Details"/><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Pie"/>
 						<PropertyValue Property="Dimensions">
 							<Collection>
 								<PropertyPath>Category</PropertyPath>
@@ -65,19 +105,64 @@
 						</PropertyValue>
 					</Record>
 				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="ChartLikesByIdea">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>Title</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="Title"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>Likes</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="Likes"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="ChartCounterByCategory">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>Category</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="Category"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>Counter</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="Counter"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis2"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="Counter">
+					<Record><PropertyValue Property="Value" Path="Counter"/><PropertyValue Property="Title" String="Counter"/></Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="Likes">
+					<Record><PropertyValue Property="Value" Path="Likes"/><PropertyValue Property="Title" String="Likes"/></Record>
+				</Annotation>
 				<Annotation Term="UI.HeaderInfo">
-					<Record><PropertyValue Property="TypeName" String="zwp_Knowledge Base"/><PropertyValue Property="TypeNamePlural" String="ZWP_Ideas"/>
+					<Record><PropertyValue Property="TypeName" String="Knowledge Base"/><PropertyValue Property="TypeNamePlural" String="Knowledge Base"/>
 						<PropertyValue Property="Title">
-							<Record Type="UI.DataField"><PropertyValue Property="Label" String="zwp_Idea"/>
-								<PropertyValue Property="Value" String="">
-									<Annotation Term="Core.Messages">
-										<Collection>
-											<Record><PropertyValue Property="code" String="SADL_GW_EXP_VOCAN-001"/><PropertyValue Property="message"
-												String="Property 'DescriptionHeader' of annotation 'UI.HEADERINFO.TITLE' in proj./view 'ZINNOV_C_IDEA_QUERY' not found"/><PropertyValue Property="severity" String="error"/></Record>
-										</Collection>
-									</Annotation>
-								</PropertyValue>
-							</Record>
+							<Record Type="UI.DataField"><PropertyValue Property="Label" String="Subject"/><PropertyValue Property="Value" Path="Title"/></Record>
 						</PropertyValue>
 						<PropertyValue Property="Description">
 							<Record Type="UI.DataField"><PropertyValue Property="Value" Path="IdeaID"/></Record>
@@ -87,7 +172,11 @@
 				<Annotation Term="UI.LineItem">
 					<Collection>
 						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Idea ID"/><PropertyValue Property="Value" Path="IdeaID"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Title"/><PropertyValue Property="Value" Path="Title"/></Record>
 						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Status"/><PropertyValue Property="Value" Path="Status"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Type"/><PropertyValue Property="Value" Path="Type"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Category"/><PropertyValue Property="Value" Path="Category"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Owner"/><PropertyValue Property="Value" Path="IdeaOwner"/></Record>
 					</Collection>
 				</Annotation>
 				<Annotation Term="UI.PresentationVariant" Qualifier="Default">
@@ -99,16 +188,30 @@
 						</PropertyValue>
 					</Record>
 				</Annotation>
-				<Annotation Term="UI.PresentationVariant" Qualifier="KPICatetoryFilter">
+				<Annotation Term="UI.PresentationVariant" Qualifier="KPICategoryFilter">
 					<Record>
 						<PropertyValue Property="SortOrder">
 							<Collection>
-								<Record Type="Common.SortOrderType"><PropertyValue Property="Property" PropertyPath=""/><PropertyValue Property="Descending" Bool="true"/></Record>
+								<Record Type="Common.SortOrderType"><PropertyValue Property="Property" PropertyPath="Category"/><PropertyValue Property="Descending" Bool="true"/></Record>
 							</Collection>
 						</PropertyValue>
 						<PropertyValue Property="Visualizations">
 							<Collection>
-								<AnnotationPath>@UI.Chart#KPICatetoryChart</AnnotationPath>
+								<AnnotationPath>@UI.Chart#ChartCounterByCategory2</AnnotationPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant" Qualifier="KPITypeFilter">
+					<Record>
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType"><PropertyValue Property="Property" PropertyPath="Type"/><PropertyValue Property="Descending" Bool="true"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Visualizations">
+							<Collection>
+								<AnnotationPath>@UI.Chart#ChartCounterByType</AnnotationPath>
 							</Collection>
 						</PropertyValue>
 					</Record>
@@ -122,12 +225,12 @@
 						</PropertyValue>
 						<PropertyValue Property="Visualizations">
 							<Collection>
-								<AnnotationPath>@UI.Chart#KPIStatusChart</AnnotationPath>
+								<AnnotationPath>@UI.Chart#ChartCounterByStatus</AnnotationPath>
 							</Collection>
 						</PropertyValue>
 					</Record>
 				</Annotation>
-				<Annotation Term="UI.PresentationVariant" Qualifier="KPICatetory">
+				<Annotation Term="UI.PresentationVariant" Qualifier="KPICategory">
 					<Record>
 						<PropertyValue Property="SortOrder">
 							<Collection>
@@ -142,21 +245,49 @@
 						</PropertyValue>
 					</Record>
 				</Annotation>
+				<Annotation Term="UI.PresentationVariant" Qualifier="KPILikesByIdea">
+					<Record><PropertyValue Property="Text" String="KPI: View By Id"/>
+						<PropertyValue Property="Visualizations">
+							<Collection>
+								<AnnotationPath>@UI.DataPoint#Likes</AnnotationPath>
+								<AnnotationPath>@UI.Chart#ChartLikesByIdea</AnnotationPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant" Qualifier="KPICounterByCategory">
+					<Record><PropertyValue Property="Text" String="KPI: Counter By Category"/>
+						<PropertyValue Property="Visualizations">
+							<Collection>
+								<AnnotationPath>@UI.DataPoint#Counter</AnnotationPath>
+								<AnnotationPath>@UI.Chart#ChartCounterByCategory</AnnotationPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
 				<Annotation Term="UI.SelectionFields">
 					<Collection>
 						<PropertyPath>Status</PropertyPath>
+						<PropertyPath>Type</PropertyPath>
+						<PropertyPath>Category</PropertyPath>
 					</Collection>
+				</Annotation>
+				<Annotation Term="UI.SelectionPresentationVariant" Qualifier="KPILikesByIdea">
+					<Record><PropertyValue Property="Text" String=""/><PropertyValue Property="SelectionVariant" Path="@UI.SelectionVariant#KPILikesByIdea"/><PropertyValue Property="PresentationVariant" Path="@UI.PresentationVariant#KPILikesByIdea"/></Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionPresentationVariant" Qualifier="KPICounterByCategory">
+					<Record><PropertyValue Property="Text" String=""/><PropertyValue Property="SelectionVariant" Path="@UI.SelectionVariant#KPICounterByCategory"/><PropertyValue Property="PresentationVariant" Path="@UI.PresentationVariant#KPICounterByCategory"/></Record>
 				</Annotation>
 				<Annotation Term="UI.SelectionPresentationVariant" Qualifier="Default">
 					<Record><PropertyValue Property="Text" String=""/><PropertyValue Property="SelectionVariant" Path="@UI.SelectionVariant#Default"/><PropertyValue Property="PresentationVariant" Path="@UI.PresentationVariant#Default"/></Record>
 				</Annotation>
-				<Annotation Term="UI.SelectionPresentationVariant" Qualifier="KPICatetory">
-					<Record><PropertyValue Property="Text" String=""/><PropertyValue Property="SelectionVariant" Path="@UI.SelectionVariant#KPICatetory"/><PropertyValue Property="PresentationVariant" Path="@UI.PresentationVariant#KPICatetory"/></Record>
+				<Annotation Term="UI.SelectionPresentationVariant" Qualifier="KPITypeFilter">
+					<Record><PropertyValue Property="Text" String=""/><PropertyValue Property="SelectionVariant" Path="@UI.SelectionVariant#KPITypeFilter"/><PropertyValue Property="PresentationVariant" Path="@UI.PresentationVariant#KPITypeFilter"/></Record>
 				</Annotation>
 				<Annotation Term="UI.SelectionVariant" Qualifier="Default">
-					<Record><PropertyValue Property="Text" String="Default Net Value"/></Record>
+					<Record><PropertyValue Property="Text" String="Default Counter Value"/></Record>
 				</Annotation>
-				<Annotation Term="UI.SelectionVariant" Qualifier="KPICatetory">
+				<Annotation Term="UI.SelectionVariant" Qualifier="KPICategory">
 					<Record><PropertyValue Property="Text" String="KPI Net Value"/></Record>
 				</Annotation>
 			</Annotations>

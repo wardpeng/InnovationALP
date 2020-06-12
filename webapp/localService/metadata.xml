@@ -20,13 +20,14 @@
 		<Schema Namespace="ZINNOV_C_IDEA_QUERY_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
 			<EntityType Name="ZINNOV_C_IDEA_QUERYType" sap:semantics="aggregate" sap:label="Query ALP for Idea/Knowledge" sap:content-version="1">
 				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" Type="Edm.String" Nullable="false" sap:sortable="false" sap:filterable="false"/><Property Name="GUID" Type="Edm.Guid" sap:aggregation-role="dimension" sap:label="GUID-Idea/Knowledge"
-					sap:quickinfo="GUID for Idea / Knowledge"/><Property Name="IdeaID" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:display-format="UpperCase"
-					sap:label="Shared ID" sap:quickinfo="ID for Idea / Knowledge"/><Property Name="Type" Type="Edm.String" MaxLength="5" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Type"
+					sap:quickinfo="GUID for Idea / Knowledge"/><Property Name="Status" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:text="StatusText" sap:label="Status" sap:quickinfo="Idea Status"/><Property Name="StatusText" Type="Edm.String" MaxLength="250" sap:label="Idea Status Description" sap:creatable="false"
+					sap:updatable="false"/><Property Name="Type" Type="Edm.String" MaxLength="5" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Type"
 					sap:quickinfo="Innovation Type"/><Property Name="Category" Type="Edm.String" MaxLength="15" sap:aggregation-role="dimension" sap:display-format="UpperCase"
-					sap:label="Category"/><Property Name="IdeaOwner" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:display-format="UpperCase"
-					sap:label="User Name"/><Property Name="Status" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:display-format="UpperCase"
-					sap:label="Idea Status"/><Property Name="Title" Type="Edm.String" MaxLength="50" sap:aggregation-role="dimension" sap:label="Title"
-					sap:quickinfo="Description(Header)"/><Property Name="Counter" Type="Edm.Int64" sap:aggregation-role="measure" sap:label="Counter" sap:filterable="false"/></EntityType>
+					sap:label="Category"/><Property Name="IdeaID" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="Shared ID" sap:quickinfo="ID for Idea / Knowledge"/><Property Name="IdeaOwner" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:display-format="UpperCase"
+					sap:label="User Name"/><Property Name="Title" Type="Edm.String" MaxLength="50" sap:aggregation-role="dimension" sap:label="Title"
+					sap:quickinfo="Description(Header)"/><Property Name="Likes" Type="Edm.Int32" sap:aggregation-role="measure" sap:label="Likes" sap:filterable="false"/><Property Name="Counter" Type="Edm.Int64" sap:aggregation-role="measure" sap:label="Counter" sap:filterable="false"/></EntityType>
 			<EntityContainer Name="ZINNOV_C_IDEA_QUERY_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true"
 				sap:supported-formats="atom json xlsx"><EntitySet Name="ZINNOV_C_IDEA_QUERY" EntityType="ZINNOV_C_IDEA_QUERY_CDS.ZINNOV_C_IDEA_QUERYType" sap:creatable="false"
 				sap:updatable="false" sap:deletable="false" sap:content-version="1"/></EntityContainer>
@@ -49,6 +50,7 @@
 						<PropertyValue Property="NonFilterableProperties">
 							<Collection>
 								<PropertyPath>ID</PropertyPath>
+								<PropertyPath>Likes</PropertyPath>
 								<PropertyPath>Counter</PropertyPath>
 							</Collection>
 						</PropertyValue>
