@@ -18,7 +18,10 @@
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
-					"annotations": ["ZINNOV_C_IDEA_QUERY_CDS_VAN", "localAnnotations"],
+					"annotations": [
+						"ZINNOV_C_IDEA_QUERY_CDS_VAN",
+						"localAnnotations"
+					],
 					"localUri": "localService/metadata.xml"
 				}
 			},
@@ -178,5 +181,9 @@
 	},
 	"sap.platform.hcp": {
 		"uri": ""
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zinnov_idea_alp/webapp",
+		"_version": "1.1.0"
 	}
 }
