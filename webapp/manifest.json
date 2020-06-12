@@ -18,10 +18,7 @@
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
-					"annotations": [
-						"ZINNOV_C_IDEA_QUERY_CDS_VAN",
-						"localAnnotations"
-					],
+					"annotations": ["ZINNOV_C_IDEA_QUERY_CDS_VAN", "localAnnotations"],
 					"localUri": "localService/metadata.xml"
 				}
 			},
@@ -114,6 +111,17 @@
 						"sap-value-list": "none"
 					}
 				}
+			},
+			"kpi": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request",
+					"useBatch": true
+				},
+				"dataSource": "mainService",
+				"preload": true
 			}
 		},
 		"extends": {
@@ -143,7 +151,18 @@
 						"qualifier": "Default",
 						"autoHide": true,
 						"smartVariantManagement": true,
-						"keyPerformanceIndicators": {}
+						"keyPerformanceIndicators": {
+							"CounterByCategory": {
+								"model": "kpi",
+								"entitySet": "ZINNOV_C_IDEA_QUERY",
+								"qualifier": "KPICounterByCategory"
+							},
+							"KPILikesByIdea": {
+								"model": "kpi",
+								"entitySet": "ZINNOV_C_IDEA_QUERY",
+								"qualifier": "KPILikesByIdea"
+							}
+						}
 					}
 				},
 				"pages": {

@@ -61,6 +61,22 @@
 					</Record>
 				</Annotation>
 			</Annotations>
+			<Annotations Target="ZINNOV_C_IDEA_QUERY_CDS.ZINNOV_C_IDEA_QUERYType/Type">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="ZINNOV_C_IDEA_QUERY"/>
+						<PropertyValue Property="PresentationVariantQualifier" String="KPITypeFilter"/>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZINNOV_C_IDEA_QUERY_CDS.ZINNOV_C_IDEA_QUERYType/Category">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="ZINNOV_C_IDEA_QUERY"/>
+						<PropertyValue Property="PresentationVariantQualifier" String="KPICategoryFilter"/>
+					</Record>
+				</Annotation>
+			</Annotations>
 		</Schema>
 	</edmx:DataServices>
 </edmx:Edmx>
