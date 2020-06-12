@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+	<edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference Uri="../../../sap/zinnov_c_idea_query_cds/$metadata"><edmx:Include Namespace="ZINNOV_C_IDEA_QUERY_CDS" Alias="SAP"/></edmx:Reference>
+	<edmx:DataServices>
+		<Schema Namespace="zinnov_c_idea_query_cds_van.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+			<Annotations Target="ZINNOV_C_IDEA_QUERY_CDS.ZINNOV_C_IDEA_QUERYType/ID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZINNOV_C_IDEA_QUERY_CDS.ZINNOV_C_IDEA_QUERYType">
+				<Annotation Term="UI.Chart" Qualifier="KPICatetoryChart">
+					<Annotation Term="Core.Messages">
+						<Collection>
+							<Record><PropertyValue Property="message"
+								String="Property 'Category2' of annotation 'UI.CHART$3$.DIMENSIONS$1$' in proj./view 'ZINNOV_C_IDEA_QUERY' not found"/><PropertyValue Property="severity" String="error"/></Record>
+						</Collection>
+					</Annotation>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="KPIStatusChart">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="Description" String="Type: K/I"/><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>Status</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="Status"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>Counter</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="Counter"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/><PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#Counter"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="ChartDefault">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="Description" String="ZWP Idea Details"/><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>Category</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="Category"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>Counter</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="Counter"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/><PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#Counter"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record><PropertyValue Property="TypeName" String="zwp_Knowledge Base"/><PropertyValue Property="TypeNamePlural" String="ZWP_Ideas"/>
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField"><PropertyValue Property="Label" String="zwp_Idea"/>
+								<PropertyValue Property="Value" String="">
+									<Annotation Term="Core.Messages">
+										<Collection>
+											<Record><PropertyValue Property="code" String="SADL_GW_EXP_VOCAN-001"/><PropertyValue Property="message"
+												String="Property 'DescriptionHeader' of annotation 'UI.HEADERINFO.TITLE' in proj./view 'ZINNOV_C_IDEA_QUERY' not found"/><PropertyValue Property="severity" String="error"/></Record>
+										</Collection>
+									</Annotation>
+								</PropertyValue>
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="Description">
+							<Record Type="UI.DataField"><PropertyValue Property="Value" Path="IdeaID"/></Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Idea ID"/><PropertyValue Property="Value" Path="IdeaID"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Status"/><PropertyValue Property="Value" Path="Status"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant" Qualifier="Default">
+					<Record>
+						<PropertyValue Property="Visualizations">
+							<Collection>
+								<AnnotationPath>@UI.Chart#ChartDefault</AnnotationPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant" Qualifier="KPICatetoryFilter">
+					<Record>
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType"><PropertyValue Property="Property" PropertyPath=""/><PropertyValue Property="Descending" Bool="true"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Visualizations">
+							<Collection>
+								<AnnotationPath>@UI.Chart#KPICatetoryChart</AnnotationPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant" Qualifier="KPIStatusFilter">
+					<Record>
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType"><PropertyValue Property="Property" PropertyPath="Status"/><PropertyValue Property="Descending" Bool="true"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Visualizations">
+							<Collection>
+								<AnnotationPath>@UI.Chart#KPIStatusChart</AnnotationPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant" Qualifier="KPICatetory">
+					<Record>
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType"><PropertyValue Property="Property" PropertyPath="Counter"/><PropertyValue Property="Descending" Bool="true"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Visualizations">
+							<Collection>
+								<AnnotationPath>@UI.DataPoint#KPIChart1</AnnotationPath>
+								<AnnotationPath>@UI.Chart#KPIChart1</AnnotationPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>Status</PropertyPath>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.SelectionPresentationVariant" Qualifier="Default">
+					<Record><PropertyValue Property="Text" String=""/><PropertyValue Property="SelectionVariant" Path="@UI.SelectionVariant#Default"/><PropertyValue Property="PresentationVariant" Path="@UI.PresentationVariant#Default"/></Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionPresentationVariant" Qualifier="KPICatetory">
+					<Record><PropertyValue Property="Text" String=""/><PropertyValue Property="SelectionVariant" Path="@UI.SelectionVariant#KPICatetory"/><PropertyValue Property="PresentationVariant" Path="@UI.PresentationVariant#KPICatetory"/></Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="Default">
+					<Record><PropertyValue Property="Text" String="Default Net Value"/></Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="KPICatetory">
+					<Record><PropertyValue Property="Text" String="KPI Net Value"/></Record>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
