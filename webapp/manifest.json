@@ -208,12 +208,7 @@
 					}
 				},
 				"pages": {
-					"ObjectPage|ZINNOV_C_IDEA_QUERY": {
-						"entitySet": "ZINNOV_C_IDEA_QUERY",
-						"component": {
-							"name": "sap.suite.ui.generic.template.ObjectPage"
-						}
-					}
+					
 				}
 			}
 		}
