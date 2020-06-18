@@ -1,8 +1,8 @@
 <edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
 	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
 	<edmx:DataServices m:DataServiceVersion="2.0">
-		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZWPINNOV_C_IDEA_VIEWED_Q_CDS" xml:lang="en" sap:schema-version="1">
-			<EntityType Name="ZWPINNOV_C_IDEA_VIEWED_QType" sap:label="Query view for Likes" sap:semantics="aggregate" sap:content-version="1">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZINNOV_C_IDEA_VIEWED_QUERY_CDS" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="ZINNOV_C_IDEA_VIEWED_QUERYType" sap:label="Query view for Likes" sap:semantics="aggregate" sap:content-version="1">
 				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" Type="Edm.String" Nullable="false" sap:filterable="false" sap:updatable="false" sap:sortable="false"/><Property Name="TotaledProperties" Type="Edm.String" sap:aggregation-role="totaled-properties-list" sap:is-annotation="true"
 					sap:updatable="false" sap:sortable="false"/><Property Name="CalendarMonth" Type="Edm.String" MaxLength="2" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false"
 					sap:label="Calendar Month"/><Property Name="ViewedDate" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:creatable="false" sap:text="ViewedDate_T"
@@ -17,10 +17,10 @@
 					sap:filterable="false"/><Property Name="ODataQueryMetadataValue_Current" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:sortable="false"
 					sap:filterable="false"/><Property Name="ODataQueryMetadataValueAtDefine" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:sortable="false"
 					sap:filterable="false"/></EntityType>
-			<EntityContainer Name="ZWPINNOV_C_IDEA_VIEWED_Q_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="ZWPINNOV_C_IDEA_VIEWED_Q" EntityType="ZWPINNOV_C_IDEA_VIEWED_Q_CDS.ZWPINNOV_C_IDEA_VIEWED_QType" sap:creatable="false"
-				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="AdditionalMetadata" EntityType="ZWPINNOV_C_IDEA_VIEWED_Q_CDS.ODataQueryAdditionalMetadata" sap:creatable="false"
+			<EntityContainer Name="ZINNOV_C_IDEA_VIEWED_QUERY_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="ZINNOV_C_IDEA_VIEWED_QUERY" EntityType="ZINNOV_C_IDEA_VIEWED_QUERY_CDS.ZINNOV_C_IDEA_VIEWED_QUERYType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="AdditionalMetadata" EntityType="ZINNOV_C_IDEA_VIEWED_QUERY_CDS.ODataQueryAdditionalMetadata" sap:creatable="false"
 				sap:updatable="false" sap:deletable="false" sap:content-version="1"/></EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self"
-				href="https://cnst34415187.dlc.sap.corp:8001/sap/opu/odata/sap/ZWPINNOV_C_IDEA_VIEWED_Q_CDS/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
-				href="https://cnst34415187.dlc.sap.corp:8001/sap/opu/odata/sap/ZWPINNOV_C_IDEA_VIEWED_Q_CDS/$metadata"/></Schema>
+				href="https://cnst34415187.dlc.sap.corp:8001/sap/opu/odata/sap/ZINNOV_C_IDEA_VIEWED_QUERY_CDS/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version"
+				href="https://cnst34415187.dlc.sap.corp:8001/sap/opu/odata/sap/ZINNOV_C_IDEA_VIEWED_QUERY_CDS/$metadata"/></Schema>
 	</edmx:DataServices>
 </edmx:Edmx>

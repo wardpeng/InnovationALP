@@ -3,24 +3,22 @@
 	<edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/></edmx:Reference>
 	<edmx:Reference
 		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
-	<edmx:Reference Uri="../../../sap/zwpinnov_c_idea_viewed_q_cds/$metadata"><edmx:Include Namespace="ZWPINNOV_C_IDEA_VIEWED_Q_CDS" Alias="SAP"/></edmx:Reference>
+	<edmx:Reference Uri="../../../sap/zinnov_c_idea_viewed_query_cds/$metadata"><edmx:Include Namespace="ZINNOV_C_IDEA_VIEWED_QUERY_CDS" Alias="SAP"/></edmx:Reference>
 	<edmx:DataServices>
-		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="zwpinnov_c_idea_viewed_q_cds_van.v1">
-			<Annotations Target="ZWPINNOV_C_IDEA_VIEWED_Q_CDS.ZWPINNOV_C_IDEA_VIEWED_QType/ID"><Annotation Term="UI.Hidden"/></Annotations>
-			<Annotations Target="ZWPINNOV_C_IDEA_VIEWED_Q_CDS.ZWPINNOV_C_IDEA_VIEWED_QType/TotaledProperties"><Annotation Term="UI.Hidden"/></Annotations>
-			<Annotations Target="ZWPINNOV_C_IDEA_VIEWED_Q_CDS.ZWPINNOV_C_IDEA_VIEWED_QType">
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="zinnov_c_idea_viewed_query_c_van.v1">
+			<Annotations Target="ZINNOV_C_IDEA_VIEWED_QUERY_CDS.ZINNOV_C_IDEA_VIEWED_QUERYType/ID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZINNOV_C_IDEA_VIEWED_QUERY_CDS.ZINNOV_C_IDEA_VIEWED_QUERYType/TotaledProperties"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZINNOV_C_IDEA_VIEWED_QUERY_CDS.ZINNOV_C_IDEA_VIEWED_QUERYType">
 				<Annotation Term="UI.Chart" Qualifier="ChartDefault">
-					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Line"/>
 						<PropertyValue Property="Dimensions">
 							<Collection>
-								<PropertyPath>CalendarMonth</PropertyPath>
-								<PropertyPath>CalendarYear</PropertyPath>
+								<PropertyPath>ViewedDate</PropertyPath>
 							</Collection>
 						</PropertyValue>
 						<PropertyValue Property="DimensionAttributes">
 							<Collection>
-								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="CalendarMonth"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/></Record>
-								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="CalendarYear"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Series"/></Record>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="ViewedDate"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/></Record>
 							</Collection>
 						</PropertyValue>
 						<PropertyValue Property="Measures">
@@ -36,15 +34,15 @@
 					</Record>
 				</Annotation>
 				<Annotation Term="UI.Chart" Qualifier="ChartCounterByMonth">
-					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Column"/>
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Line"/>
 						<PropertyValue Property="Dimensions">
 							<Collection>
-								<PropertyPath>CalendarYear</PropertyPath>
+								<PropertyPath>CalendarYearMonth</PropertyPath>
 							</Collection>
 						</PropertyValue>
 						<PropertyValue Property="DimensionAttributes">
 							<Collection>
-								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="CalendarYear"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/></Record>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="CalendarYearMonth"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/></Record>
 							</Collection>
 						</PropertyValue>
 						<PropertyValue Property="Measures">
@@ -59,8 +57,39 @@
 						</PropertyValue>
 					</Record>
 				</Annotation>
+				<Annotation Term="UI.Chart" Qualifier="ChartCounterByDate">
+					<Record Type="UI.ChartDefinitionType"><PropertyValue Property="ChartType" EnumMember="UI.ChartType/Line"/>
+						<PropertyValue Property="Dimensions">
+							<Collection>
+								<PropertyPath>ViewedDate</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="DimensionAttributes">
+							<Collection>
+								<Record Type="UI.ChartDimensionAttributeType"><PropertyValue Property="Dimension" PropertyPath="ViewedDate"/><PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Measures">
+							<Collection>
+								<PropertyPath>Counter</PropertyPath>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="MeasureAttributes">
+							<Collection>
+								<Record Type="UI.ChartMeasureAttributeType"><PropertyValue Property="Measure" PropertyPath="Counter"/><PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="Counter">
+					<Record><PropertyValue Property="Value" Path="Counter"/><PropertyValue Property="Title" String="Counter"/></Record>
+				</Annotation>
 				<Annotation Term="UI.LineItem">
 					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="CalendarYear"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="CalendarMonth"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="CalendarYearMonth"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="ViewedDate"/></Record>
 						<Record Type="UI.DataField"><PropertyValue Property="Value" Path="Counter"/></Record>
 					</Collection>
 				</Annotation>
@@ -73,17 +102,18 @@
 						</PropertyValue>
 					</Record>
 				</Annotation>
-				<Annotation Term="UI.PresentationVariant" Qualifier="FilterBookingsByYear">
-					<Record><PropertyValue Property="Text" String="Filter: Bookings by Year"/>
+				<Annotation Term="UI.PresentationVariant" Qualifier="KPICounterByDate">
+					<Record><PropertyValue Property="Text" String="KPI: Counter By Date"/>
 						<PropertyValue Property="Visualizations">
 							<Collection>
-								<AnnotationPath>@UI.Chart#ChartBookingsByYear</AnnotationPath>
+								<AnnotationPath>@UI.DataPoint#Counter</AnnotationPath>
+								<AnnotationPath>@UI.Chart#ChartCounterByDate</AnnotationPath>
 							</Collection>
 						</PropertyValue>
 					</Record>
 				</Annotation>
 				<Annotation Term="UI.PresentationVariant" Qualifier="KPICounterByMonth">
-					<Record><PropertyValue Property="Text" String="KPI: KPICounterByMonth"/>
+					<Record><PropertyValue Property="Text" String="KPI: Counter By Month"/>
 						<PropertyValue Property="Visualizations">
 							<Collection>
 								<AnnotationPath>@UI.DataPoint#Counter</AnnotationPath>
@@ -94,12 +124,15 @@
 				</Annotation>
 				<Annotation Term="UI.SelectionFields">
 					<Collection>
-						<PropertyPath>CalendarMonth</PropertyPath>
 						<PropertyPath>CalendarYear</PropertyPath>
+						<PropertyPath>CalendarMonth</PropertyPath>
 					</Collection>
 				</Annotation>
 				<Annotation Term="UI.SelectionPresentationVariant" Qualifier="Default">
 					<Record><PropertyValue Property="Text" String=""/><PropertyValue Property="SelectionVariant" Path="@UI.SelectionVariant#Default"/><PropertyValue Property="PresentationVariant" Path="@UI.PresentationVariant#Default"/></Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionPresentationVariant" Qualifier="KPICounterByDate">
+					<Record><PropertyValue Property="Text" String=""/><PropertyValue Property="SelectionVariant" Path="@UI.SelectionVariant#KPICounterByDate"/><PropertyValue Property="PresentationVariant" Path="@UI.PresentationVariant#KPICounterByDate"/></Record>
 				</Annotation>
 				<Annotation Term="UI.SelectionPresentationVariant" Qualifier="KPICounterByMonth">
 					<Record><PropertyValue Property="Text" String=""/><PropertyValue Property="SelectionVariant" Path="@UI.SelectionVariant#KPICounterByMonth"/><PropertyValue Property="PresentationVariant" Path="@UI.PresentationVariant#KPICounterByMonth"/></Record>
@@ -107,8 +140,11 @@
 				<Annotation Term="UI.SelectionVariant" Qualifier="Default">
 					<Record><PropertyValue Property="Text" String="Default"/></Record>
 				</Annotation>
+				<Annotation Term="UI.SelectionVariant" Qualifier="KPICounterByDate">
+					<Record><PropertyValue Property="Text" String="KPICounterByDate"/></Record>
+				</Annotation>
 				<Annotation Term="UI.SelectionVariant" Qualifier="KPICounterByMonth">
-					<Record><PropertyValue Property="Text" String="Default"/></Record>
+					<Record><PropertyValue Property="Text" String="KPICounterByMonth"/></Record>
 				</Annotation>
 			</Annotations>
 		</Schema>

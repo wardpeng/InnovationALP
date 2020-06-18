@@ -39,22 +39,22 @@
 					"localUri": "annotations/annotations.xml"
 				}
 			},
-			"ZWPINNOV_C_IDEA_VIEWED_Q_CDS": {
-				"uri": "/sap/opu/odata/sap/ZWPINNOV_C_IDEA_VIEWED_Q_CDS/",
+			"ZINNOV_C_IDEA_VIEWED_QUERY_CDS": {
+				"uri": "/sap/opu/odata/sap/ZINNOV_C_IDEA_VIEWED_QUERY_CDS/",
 				"type": "OData",
 				"settings": {
 					"annotations": [
-						"ZWPINNOV_C_IDEA_VIEWED_Q_CDS_VAN"
+						"ZINNOV_C_IDEA_VIEWED_QUERY_C_VAN"
 					],
 					"odataVersion": "2.0",
-					"localUri": "localService/ZWPINNOV_C_IDEA_VIEWED_Q_CDS/metadata.xml"
+					"localUri": "localService/ZINNOV_C_IDEA_VIEWED_QUERY_CDS/metadata.xml"
 				}
 			},
-			"ZWPINNOV_C_IDEA_VIEWED_Q_CDS_VAN": {
-				"uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZWPINNOV_C_IDEA_VIEWED_Q_CDS_VAN',Version='0001')/$value/",
+			"ZINNOV_C_IDEA_VIEWED_QUERY_C_VAN": {
+				"uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZINNOV_C_IDEA_VIEWED_QUERY_C_VAN',Version='0001')/$value/",
 				"type": "ODataAnnotation",
 				"settings": {
-					"localUri": "localService/ZWPINNOV_C_IDEA_VIEWED_Q_CDS_VAN.xml"
+					"localUri": "localService/ZINNOV_C_IDEA_VIEWED_QUERY_C_VAN.xml"
 				}
 			}
 		},
@@ -152,7 +152,7 @@
 					"defaultCountMode": "Request",
 					"useBatch": true
 				},
-				"dataSource": "ZWPINNOV_C_IDEA_VIEWED_Q_CDS",
+				"dataSource": "ZINNOV_C_IDEA_VIEWED_QUERY_CDS",
 				"preload": true
 			}
 		},
@@ -196,12 +196,12 @@
 							},
 							"Month": {
 								"model": "viewed",
-								"entitySet": "ZWPINNOV_C_IDEA_VIEWED_Q",
+								"entitySet": "ZINNOV_C_IDEA_VIEWED_QUERY",
 								"qualifier": "KPICounterByMonth"
 							},
 							"Date": {
 								"model": "viewed",
-								"entitySet": "ZWPINNOV_C_IDEA_VIEWED_Q",
+								"entitySet": "ZINNOV_C_IDEA_VIEWED_QUERY",
 								"qualifier": "KPICounterByDate"
 							}
 						}
