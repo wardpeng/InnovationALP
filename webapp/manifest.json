@@ -38,12 +38,30 @@
 				"settings": {
 					"localUri": "annotations/annotations.xml"
 				}
+			},
+			"ZWPINNOV_C_IDEA_VIEWED_Q_CDS": {
+				"uri": "/sap/opu/odata/sap/ZWPINNOV_C_IDEA_VIEWED_Q_CDS/",
+				"type": "OData",
+				"settings": {
+					"annotations": [
+						"ZWPINNOV_C_IDEA_VIEWED_Q_CDS_VAN"
+					],
+					"odataVersion": "2.0",
+					"localUri": "localService/ZWPINNOV_C_IDEA_VIEWED_Q_CDS/metadata.xml"
+				}
+			},
+			"ZWPINNOV_C_IDEA_VIEWED_Q_CDS_VAN": {
+				"uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZWPINNOV_C_IDEA_VIEWED_Q_CDS_VAN',Version='0001')/$value/",
+				"type": "ODataAnnotation",
+				"settings": {
+					"localUri": "localService/ZWPINNOV_C_IDEA_VIEWED_Q_CDS_VAN.xml"
+				}
 			}
 		},
 		"offline": false,
 		"sourceTemplate": {
-			"id": "ALP_WebIDE_Plugin.analyticallistpage",
-			"version": "1.41.1"
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
 		}
 	},
 	"sap.ui": {
@@ -125,6 +143,17 @@
 				},
 				"dataSource": "mainService",
 				"preload": true
+			},
+			"viewed": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request",
+					"useBatch": true
+				},
+				"dataSource": "ZWPINNOV_C_IDEA_VIEWED_Q_CDS",
+				"preload": true
 			}
 		},
 		"extends": {
@@ -164,6 +193,16 @@
 								"model": "kpi",
 								"entitySet": "ZINNOV_C_IDEA_QUERY",
 								"qualifier": "KPILikesByIdea"
+							},
+							"Month": {
+								"model": "viewed",
+								"entitySet": "ZWPINNOV_C_IDEA_VIEWED_Q",
+								"qualifier": "KPICounterByMonth"
+							},
+							"Date": {
+								"model": "viewed",
+								"entitySet": "ZWPINNOV_C_IDEA_VIEWED_Q",
+								"qualifier": "KPICounterByDate"
 							}
 						}
 					}
