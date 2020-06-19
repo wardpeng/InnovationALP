@@ -62,6 +62,15 @@
 		"sourceTemplate": {
 			"id": "servicecatalog.connectivityComponentForManifest",
 			"version": "0.0.0"
+		},
+		"crossNavigation": {
+			"inbounds": {},
+			"outbounds": {
+				"toDetails": {
+					"semanticObject": "ZKnowledgeBase",
+					"action": "manage"
+				}
+			}
 		}
 	},
 	"sap.ui": {
@@ -157,7 +166,19 @@
 			}
 		},
 		"extends": {
-			"extensions": {}
+			"extensions": {
+				"sap.ui.controllerExtensions": {
+					"sap.suite.ui.generic.template.AnalyticalListPage.view.AnalyticalListPage": {
+						"controllerName": "com.sap.sdc.innovation.knowledgebase.alp.zinnov_knowledgebase_alp.ext.controller.AnalyticalListPageExt",
+						"sap.ui.generic.app": {
+							"ZINNOV_C_IDEA_QUERY": {
+								"EntitySet": "ZINNOV_C_IDEA_QUERY",
+								"Actions": {}
+							}
+						}
+					}
+				}
+			}
 		},
 		"contentDensities": {
 			"compact": true,
@@ -208,7 +229,12 @@
 					}
 				},
 				"pages": {
-					
+					"ObjectPage|ZINNOV_C_IDEA_QUERY": {
+						"entitySet": "ZINNOV_C_IDEA_QUERY",
+						"component": {
+							"name": "sap.suite.ui.generic.template.ObjectPage"
+						}
+					}
 				}
 			}
 		}
