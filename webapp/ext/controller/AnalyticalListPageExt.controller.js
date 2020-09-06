@@ -9,7 +9,9 @@ sap.ui.controller("com.sap.sdc.innovation.knowledgebase.alp.zinnov_knowledgebase
 		// for notebooks we trigger external navigation for all others we use internal navigation
 		//ZKnowledgeBase-manage&//ZINNOV_C_Idea(guid'0894ef68-4468-1eea-aca8-b1541fc064bd')
 		oNavigationController.navigateExternal("toDetails", {
-			"guid": oObject.GUID
+			"Category": oObject.GUID,
+			"Title": oObject.Title,
+			"Type": oObject.Type
 		});
 		
 		// // return false to trigger the default internal navigation
